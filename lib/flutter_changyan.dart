@@ -74,7 +74,7 @@ class FlutterChangyan {
   }
 
   // 0: default, 1: weibo, 2: qq, 11 Sohu
-  static loginUrl([String platform]) async {
+  static loginUrl([String platform]) {
     var data = {
       'client_id': _clientId,
       'redirect_uri': _callBackUrl,

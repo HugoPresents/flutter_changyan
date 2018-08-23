@@ -24,6 +24,12 @@ void main() {
     print('more comments: $comments');
   });
 
+  test('login url', () {
+    FlutterChangyan.register(clientId, clientSecret, callbackUrl);
+    var loginUrl = FlutterChangyan.loginUrl();
+    print('loginUrl: $loginUrl');
+  });
+
   test('login', () async {
     FlutterChangyan.register(clientId, clientSecret, callbackUrl);
     var loginInfo = await FlutterChangyan.login(code);
@@ -31,7 +37,7 @@ void main() {
   });
 
   test('post', () async {
-    FlutterChangyan.register(clientId,, clientSecret, callbackUrl, token);
+    FlutterChangyan.register(clientId, clientSecret, callbackUrl, token);
     var res = await FlutterChangyan.post(4965050220, "this is a comment");
     print('post res: $res');
   });
