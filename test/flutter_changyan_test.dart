@@ -1,5 +1,4 @@
 import 'package:test/test.dart';
-
 import 'package:flutter_changyan/flutter_changyan.dart';
 
 // visit http://changyan.kuaizhan.com/overview get clientId and clientSecret
@@ -38,7 +37,7 @@ void main() {
 
   test('post', () async {
     FlutterChangyan.register(clientId, clientSecret, callbackUrl, token);
-    var res = await FlutterChangyan.post(4965050220, "this is a comment");
+    var res = await FlutterChangyan.post(1024, "this is a comment");
     print('post res: $res');
   });
 
