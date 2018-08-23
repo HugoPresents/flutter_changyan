@@ -11,10 +11,10 @@ class FlutterChangyan {
   static String _api = 'changyan.sohu.com';
   static HttpClient _client = new HttpClient();
 
-
 // visit http://changyan.kuaizhan.com/overview get clientId and clientSecret
 // visit http://changyan.kuaizhan.com/setting/common/further set callbackUrl
-  static register(String clientId, String clientSecret, String callbackUrl, [String accessToken]) {
+  static register(String clientId, String clientSecret, String callbackUrl,
+      [String accessToken]) {
     _clientId = clientId;
     _clientSecret = clientSecret;
     _callBackUrl = callbackUrl;
@@ -25,15 +25,11 @@ class FlutterChangyan {
 
 // you need to call info() get topicId first, then use topicId call moreComments
   static moreComments(num page, num topicId) async {
-    var uri = Uri.https(
-      _api,
-      '/api/2/topic/comments',
-      {
-        'client_id': _clientId,
-        'topic_id': topicId.toString(),
-        'page_no': page.toString()
-      }
-    );
+    var uri = Uri.https(_api, '/api/2/topic/comments', {
+      'client_id': _clientId,
+      'topic_id': topicId.toString(),
+      'page_no': page.toString()
+    });
     var res = await _request(uri);
     return res['comments'];
   }
@@ -49,10 +45,8 @@ class FlutterChangyan {
   }
 
   static batchCount(List<num> sourceIds) async {
-    var uri = Uri.https(_api, '/api/2/topic/count', {
-      'client_id': _clientId,
-      'topic_source_id': sourceIds.join(',')
-    });
+    var uri = Uri.https(_api, '/api/2/topic/count',
+        {'client_id': _clientId, 'topic_source_id': sourceIds.join(',')});
     var res = Map();
     var data = await _request(uri);
     res = data['result'];
@@ -104,10 +98,8 @@ class FlutterChangyan {
   }
 
   static userInfo() async {
-    var uri = Uri.https(_api, '/api/2/user/info', {
-      'client_id': _clientId,
-      'access_token': _accessToken
-    });
+    var uri = Uri.https(_api, '/api/2/user/info',
+        {'client_id': _clientId, 'access_token': _accessToken});
     var res = await _request(uri);
     return res;
   }
