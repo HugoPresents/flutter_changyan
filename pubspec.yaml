@@ -2,7 +2,7 @@ name: flutter_changyan
 description: changyan package for flutter.
 version: 0.0.1
 author: HugoZhang<rabbitzhang52@gmail.com>
-homepage: https://rabbit52.com
+homepage: https://github.com/HugoPresents/flutter_changyan
 
 environment:
     sdk: ">=1.19.0 <2.0.0"
